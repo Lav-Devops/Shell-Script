@@ -7,9 +7,9 @@ LOGFILE="/tmp/$0-$TIMESTAMP.log"
 VALIDATE() {
 if [ $1 -ne 0 ]
 then
- echo "Installation $2 failed"
+ echo -e "Installation $2 \e[31m failed"
 else
- echo "Installation $2 success"
+ echo -e "Installation $2 \e[32m success"
 fi
 }
 
@@ -18,7 +18,7 @@ then
  echo -e " \e[31m Run with root user"
  exit 1
 else
- echo "you are root user"
+ echo -e " \e[32m you are root user"
 fi
 
 yum install mysql -y &>> $LOGFILE
