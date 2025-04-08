@@ -6,14 +6,14 @@ LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
 echo "script started executing at $TIMESTAMP" &>>LOGFILE
 
-VALIDATE() [
+VALIDATE() {
     if [ $1 -ne 0 ]
     then 
     echo "$2 ... Failed"
     else
     echo " $2.... Success"
     fi
-]
+}
 
 if [ $ID -ne 0 ]
 then
