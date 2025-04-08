@@ -9,9 +9,9 @@ echo "script started executing at $TIMESTAMP" &>>LOGFILE
 VALIDATE() {
     if [ $1 -ne 0 ]
     then 
-    echo "$2 ... Failed"
+     echo "$2 ... Failed"
     else
-    echo " $2.... Success"
+     echo " $2.... Success"
     fi
 }
 
@@ -27,9 +27,10 @@ for package in $@
 do
    yum list installed $package &>> $LOGFILE
    if [ $? -ne 0 ]
-   yum install $package -y &>> $LOGFILE
-   VALLIDATE $? "Installation of $package"
+   then
+    yum install $package -y &>> $LOGFILE
+    VALLIDATE $? "Installation of $package"
    else 
-   echo "$package is already installed"
+    echo "$package is already installed"
    fi 
 done
