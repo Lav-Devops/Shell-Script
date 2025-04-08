@@ -29,7 +29,7 @@ do
    if [ $? -ne 0 ]
    then
     yum install $package -y &>> $LOGFILE
-    VALLIDATE $? "Installation of $package"
+    VALIDATE $? "Installation of $package"
    else 
     echo "$package is already installed"
    fi 
